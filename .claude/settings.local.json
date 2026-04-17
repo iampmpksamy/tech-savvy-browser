@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs -I {} sh -c 'echo \"{}\" && wc -l \"{}\"')",
+      "Bash(awk '{print $1, \"\\(\" $2 \" lines\\)\"}')",
+      "Bash(npm install *)",
+      "Bash(cmd.exe /c \"cd \\\\\"C:\\\\Users\\\\pmpks\\\\OneDrive\\\\Desktop\\\\Personal\\\\Resume Creation of 032026\\\\ATS Resume Builder \\(1\\)\\\\Project\\\\TECH SAVVY\\\\tech-savvy-browser\\\\\" && npm install framer-motion\")",
+      "Bash(cmd.exe /c \"cd \\\\\"C:\\\\Users\\\\pmpks\\\\OneDrive\\\\Desktop\\\\Personal\\\\Resume Creation of 032026\\\\ATS Resume Builder \\(1\\)\\\\Project\\\\TECH SAVVY\\\\tech-savvy-browser\\\\\" && npm install framer-motion 2>&1\")",
+      "Bash(powershell.exe -Command \"Set-Location 'C:\\\\Users\\\\pmpks\\\\OneDrive\\\\Desktop\\\\Personal\\\\Resume Creation of 032026\\\\ATS Resume Builder \\(1\\)\\\\Project\\\\TECH SAVVY\\\\tech-savvy-browser'; npm install framer-motion\")",
+      "Bash(cmd.exe /c \"where npm 2>nul || echo NOT_FOUND\")",
+      "Bash(cmd.exe /c \"where node 2>nul || echo NOT_FOUND\")",
+      "Bash(cmd.exe /c \"dir C:\\\\Users\\\\pmpks\\\\AppData\\\\Roaming\\\\npm\\\\npm.cmd 2>nul && echo found || dir C:\\\\Program Files\\\\nodejs\\\\npm.cmd 2>nul && echo found\")"
+    ]
+  }
+}
