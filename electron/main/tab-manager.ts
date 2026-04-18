@@ -2,7 +2,7 @@
 // Owns one WebContentsView per tab, positioned inside the main window under
 // the renderer's tab strip + URL bar. Hibernates idle tabs to save RAM.
 import { BrowserWindow, WebContentsView } from 'electron';
-import { nanoid } from 'nanoid';
+import { randomBytes } from 'crypto';
 import type { Tab, TabId, PageContext, PageType } from '@shared/types';
 import { IPC } from '@shared/ipc/channels';
 import type { ProfileManager } from './profile-manager';
@@ -44,7 +44,7 @@ export class TabManager {
   }
 
   create(url = 'about:blank'): Tab {
-    const id = nanoid(10);
+    const id = randomBytes(10).toString('base64url').slice(0, 10);
     const view = this.makeView(id, url);
     const meta: Tab = {
       id,

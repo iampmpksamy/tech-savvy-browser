@@ -4,7 +4,7 @@
 import type { BrowserWindow } from 'electron';
 import * as pty from 'node-pty';
 import os from 'node:os';
-import { nanoid } from 'nanoid';
+import { randomBytes } from 'crypto';
 import { IPC } from '@shared/ipc/channels';
 
 interface Session {
@@ -18,7 +18,7 @@ export class TerminalService {
   constructor(private win: BrowserWindow) {}
 
   spawn(cols = 80, rows = 24): string {
-    const id = nanoid(8);
+    const id = randomBytes(8).toString('base64url').slice(0, 8);
     const shell = defaultShell();
     const proc = pty.spawn(shell, [], {
       name: 'xterm-256color',

@@ -29,7 +29,6 @@
     "electron-updater": "^6.3.9",
     "framer-motion": "^11.0.0",
     "lucide-react": "^0.451.0",
-    "nanoid": "^5.0.7",
     "node-pty": "^1.0.0",
     "ollama": "^0.5.9",
     "openai": "^4.68.0",
