@@ -67,6 +67,6 @@ mac:
 # ---------- Auto-update ----------
 publish:
   provider: github
-  owner: your-gh-user-or-org
+  owner: iampmpksamy
   repo: tech-savvy-browser
   releaseType: release
