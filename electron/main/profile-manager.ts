@@ -3,7 +3,7 @@
 // storage, extensions, history.
 import { session, Session } from 'electron';
 import Store from 'electron-store';
-import { nanoid } from 'nanoid';
+import { randomBytes } from 'crypto';
 import type { Profile, ProfileId } from '@shared/types';
 
 interface ProfileStore {
@@ -20,10 +20,10 @@ export class ProfileManager {
   async init() {
     if (this.store.get('profiles').length === 0) {
       const defaultProfile: Profile = {
-        id: nanoid(8),
+        id: randomBytes(8).toString('base64url').slice(0, 8),
         name: 'Default',
         avatarColor: '#6d8cff',
-        partition: `persist:default-${nanoid(6)}`,
+        partition: `persist:default-${randomBytes(6).toString('base64url').slice(0, 6)}`,
         createdAt: Date.now(),
       };
       this.store.set('profiles', [defaultProfile]);
@@ -54,10 +54,10 @@ export class ProfileManager {
 
   create(name: string, avatarColor = '#6d8cff'): Profile {
     const p: Profile = {
-      id: nanoid(8),
+      id: randomBytes(8).toString('base64url').slice(0, 8),
       name,
       avatarColor,
-      partition: `persist:${nanoid(10)}`,
+      partition: `persist:${randomBytes(10).toString('base64url').slice(0, 10)}`,
       createdAt: Date.now(),
     };
     this.store.set('profiles', [...this.list(), p]);
