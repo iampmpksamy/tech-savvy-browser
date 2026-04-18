@@ -5,18 +5,14 @@
     "module": "CommonJS",
     "moduleResolution": "Node",
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
+
     "outDir": "dist-electron",
-    "rootDir": ".",
-    "baseUrl": ".",
-    "paths": {
-      "@shared/*": ["src/shared/*"]
-    },
+    "rootDir": "electron",   // 🔥 KEEP THIS
+
     "types": ["node"]
   },
-  "include": ["electron/**/*.ts", "src/shared/**/*.ts", "vite.config.ts", "scripts/**/*.mjs"]
+  "include": ["electron/**/*.ts"]
 }
