@@ -37,7 +37,7 @@ nsis:
 
 # ---------- Linux ----------
 linux:
-  maintainer: Maalig <iampmpksamy@gmail.com
+  maintainer: Maalig <iampmpksamy@gmail.com>
   target:
     - AppImage
     - deb
