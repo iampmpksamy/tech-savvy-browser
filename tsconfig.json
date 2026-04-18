@@ -17,11 +17,14 @@
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "allowJs": false,
+
     "baseUrl": ".",
     "paths": {
       "@renderer/*": ["src/renderer/*"],
       "@shared/*": ["src/shared/*"]
-    }
+    },
+
+    "ignoreDeprecations": "6.0"
   },
   "include": ["src"],
   "exclude": ["dist", "dist-electron", "release", "node_modules", "electron"]

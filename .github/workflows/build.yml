@@ -24,13 +24,22 @@ jobs:
         with:
           node-version: 22
 
+        # 🔥 ADD THIS BLOCK
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+         python-version: '3.11'
+
+      - name: Install Python deps
+        run: pip install setuptools
+
       - name: Install dependencies
         run: npm install
 
       - name: Build App
-        run: npm run build   # 🔥 THIS FIXES EVERYTHING
+        run: npm run build
 
       - name: Build & Publish
         run: npx electron-builder --publish always
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
