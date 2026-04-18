@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "lib": ["ES2022"],
     "module": "CommonJS",
     "moduleResolution": "Node",
 
     "outDir": "dist-electron",
+    "rootDir": ".",   // 🔥 CHANGE THIS
 
     "baseUrl": ".",
     "paths": {
@@ -14,7 +14,6 @@
 
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "resolveJsonModule": true,
     "types": ["node"]
   },
   "include": ["electron/**/*.ts", "src/shared/**/*.ts"]
