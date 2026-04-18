@@ -4,15 +4,18 @@
     "lib": ["ES2022"],
     "module": "CommonJS",
     "moduleResolution": "Node",
-    "strict": true,
+
+    "outDir": "dist-electron",
+
+    "baseUrl": ".",
+    "paths": {
+      "@shared/*": ["src/shared/*"]
+    },
+
     "esModuleInterop": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-
-    "outDir": "dist-electron",
-    "rootDir": "electron",   // 🔥 KEEP THIS
-
     "types": ["node"]
   },
-  "include": ["electron/**/*.ts"]
+  "include": ["electron/**/*.ts", "src/shared/**/*.ts"]
 }
