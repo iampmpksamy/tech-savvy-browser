@@ -16,8 +16,6 @@ files:
   - '!**/node_modules/.bin'
 
 asar: true
-asarUnpack:
-  - node_modules/node-pty/**
 
 # ---------- Windows ----------
 win:
