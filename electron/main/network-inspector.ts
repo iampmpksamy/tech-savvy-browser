@@ -3,8 +3,8 @@
 // Network.* CDP events to the renderer — powering the DevTools-style Network
 // panel.
 import type { BrowserWindow } from 'electron';
-import type { NetworkEvent, TabId } from '@shared/types';
-import { IPC } from '@shared/ipc/channels';
+import type { NetworkEvent, TabId } from '../../src/shared/types';
+import { IPC } from '../../src/shared/ipc/channels';
 import type { TabManager } from './tab-manager';
 
 export class NetworkInspector {

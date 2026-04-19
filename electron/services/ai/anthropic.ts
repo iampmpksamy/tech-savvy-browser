@@ -1,6 +1,6 @@
 import Anthropic from '@anthropic-ai/sdk';
 import type { AiProviderClient } from './index';
-import type { AiMessage } from '@shared/types';
+import type { AiMessage } from '../../../src/shared/types';
 
 export class AnthropicProvider implements AiProviderClient {
   name = 'anthropic' as const;

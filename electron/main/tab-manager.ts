@@ -3,8 +3,8 @@
 // the renderer's tab strip + URL bar. Hibernates idle tabs to save RAM.
 import { BrowserWindow, WebContentsView } from 'electron';
 import { randomBytes } from 'crypto';
-import type { Tab, TabId, PageContext, PageType } from '@shared/types';
-import { IPC } from '@shared/ipc/channels';
+import type { Tab, TabId, PageContext, PageType } from '../../src/shared/types';
+import { IPC } from '../../src/shared/ipc/channels';
 import type { ProfileManager } from './profile-manager';
 import type { PersistedSession, PersistedTab } from './tab-persistence';
 

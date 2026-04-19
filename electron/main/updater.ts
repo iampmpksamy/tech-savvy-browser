@@ -1,7 +1,7 @@
 // ─── Auto-updater ──────────────────────────────────────────────────────────
 import type { BrowserWindow } from 'electron';
 import { autoUpdater } from 'electron-updater';
-import { IPC } from '@shared/ipc/channels';
+import { IPC } from '../../src/shared/ipc/channels';
 
 export function initAutoUpdater(win: BrowserWindow) {
   if (process.env.NODE_ENV === 'development') return;

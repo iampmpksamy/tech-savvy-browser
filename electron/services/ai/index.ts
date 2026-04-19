@@ -3,7 +3,7 @@
 // NEVER touch the renderer.
 import { safeStorage } from 'electron';
 import Store from 'electron-store';
-import type { AiMessage, AiProvider, AiProviderConfig } from '@shared/types';
+import type { AiMessage, AiProvider, AiProviderConfig } from '../../../src/shared/types';
 import { OpenAiProvider } from './openai';
 import { AnthropicProvider } from './anthropic';
 import { OllamaProvider } from './ollama';

@@ -5,12 +5,7 @@
     "moduleResolution": "Node",
 
     "outDir": "dist-electron",
-    "rootDir": ".",   // 🔥 CHANGE THIS
-
-    "baseUrl": ".",
-    "paths": {
-      "@shared/*": ["src/shared/*"]
-    },
+    "rootDir": ".",
 
     "esModuleInterop": true,
     "skipLibCheck": true,

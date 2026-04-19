@@ -2,7 +2,7 @@
 // Serialises and restores the tab session across app restarts.
 // Intentionally thin: owns the store schema and nothing else.
 import Store from 'electron-store';
-import type { TabId, GroupId } from '@shared/types';
+import type { TabId, GroupId } from '../../src/shared/types';
 
 export interface PersistedTab {
   id: TabId;

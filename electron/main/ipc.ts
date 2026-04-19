@@ -2,8 +2,8 @@
 // Wires all services to the renderer through a single, typed surface.
 import { BrowserWindow, ipcMain } from 'electron';
 import axios from 'axios';
-import { IPC } from '@shared/ipc/channels';
-import type { HttpRequestSpec, HttpResponseSpec, PageContext } from '@shared/types';
+import { IPC } from '../../src/shared/ipc/channels';
+import type { HttpRequestSpec, HttpResponseSpec, PageContext } from '../../src/shared/types';
 import type { TabManager } from './tab-manager';
 import type { ProfileManager } from './profile-manager';
 import type { BlockerService } from './blocker';

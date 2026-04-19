@@ -1,6 +1,6 @@
 import OpenAI from 'openai';
 import type { AiProviderClient } from './index';
-import type { AiMessage } from '@shared/types';
+import type { AiMessage } from '../../../src/shared/types';
 
 export class OpenAiProvider implements AiProviderClient {
   name = 'openai' as const;

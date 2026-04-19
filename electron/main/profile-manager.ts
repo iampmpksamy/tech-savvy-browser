@@ -4,7 +4,7 @@
 import { session, Session } from 'electron';
 import Store from 'electron-store';
 import { randomBytes } from 'crypto';
-import type { Profile, ProfileId } from '@shared/types';
+import type { Profile, ProfileId } from '../../src/shared/types';
 
 interface ProfileStore {
   profiles: Profile[];

@@ -1,6 +1,6 @@
 import { Ollama } from 'ollama';
 import type { AiProviderClient } from './index';
-import type { AiMessage } from '@shared/types';
+import type { AiMessage } from '../../../src/shared/types';
 
 export class OllamaProvider implements AiProviderClient {
   name = 'ollama' as const;
