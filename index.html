@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' ws: https: http://localhost:* http://127.0.0.1:*;"
+    />
+    <title>Tech Savvy Browser</title>
+  </head>
+  <body class="bg-bg-0 text-fg-0 overflow-hidden select-none">
+    <div id="root"></div>
+    <script type="module" src="/src/renderer/main.tsx"></script>
+  </body>
+</html>
