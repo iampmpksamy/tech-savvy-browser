@@ -47,7 +47,19 @@ export interface WebViewElement extends HTMLElement {
   addEventListener(event: 'did-fail-load',          handler: (e: { errorCode: number; errorDescription: string; validatedURL: string }) => void): void;
   addEventListener(event: 'new-window',             handler: (e: { url: string }) => void): void;
   addEventListener(event: string,                   handler: EventListenerOrEventListenerObject): void;
-  removeEventListener(event: string,                handler: EventListenerOrEventListenerObject): void;
+
+  // Mirror the typed addEventListener overloads so removeEventListener accepts the same
+  // callback signatures (avoids TS2345 "not assignable to EventListenerOrEventListenerObject").
+  removeEventListener(event: 'did-start-loading',    handler: () => void): void;
+  removeEventListener(event: 'did-stop-loading',     handler: () => void): void;
+  removeEventListener(event: 'dom-ready',            handler: () => void): void;
+  removeEventListener(event: 'page-title-updated',   handler: (e: { title: string }) => void): void;
+  removeEventListener(event: 'page-favicon-updated', handler: (e: { favicons: string[] }) => void): void;
+  removeEventListener(event: 'did-navigate',         handler: (e: { url: string }) => void): void;
+  removeEventListener(event: 'did-navigate-in-page', handler: (e: { url: string; isMainFrame: boolean }) => void): void;
+  removeEventListener(event: 'did-fail-load',        handler: (e: { errorCode: number; errorDescription: string; validatedURL: string }) => void): void;
+  removeEventListener(event: 'new-window',           handler: (e: { url: string }) => void): void;
+  removeEventListener(event: string,                 handler: EventListenerOrEventListenerObject): void;
 }
 
 const _refs = new Map<string, WebViewElement>();
@@ -67,5 +79,5 @@ export function normalizeUrl(input: string): string {
   if (!trimmed) return 'about:blank';
   if (/^[a-z]+:\/\//i.test(trimmed)) return trimmed;                              // already has scheme
   if (/^[\w.-]+\.[a-z]{2,}(\/.*)?$/i.test(trimmed)) return `https://${trimmed}`; // bare hostname
-  return `https://duckduckgo.com/?q=${encodeURIComponent(trimmed)}`;               // search query
+  return `https://www.google.com/search?q=${encodeURIComponent(trimmed)}`;          // search query
 }

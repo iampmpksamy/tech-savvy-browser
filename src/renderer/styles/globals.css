@@ -13,32 +13,16 @@
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family:
-      'Inter',
-      system-ui,
-      -apple-system,
-      'Segoe UI',
-      Roboto,
-      sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   }
-  ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #2a2f38;
-    border-radius: 4px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #3a414d;
-  }
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
+  ::-webkit-scrollbar         { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-thumb   { background: rgba(255,255,255,0.07); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.13); }
+  ::-webkit-scrollbar-track   { background: transparent; }
 }
 
 @layer components {
-  /* Electron/Chromium drag regions — not applicable to Firefox/Safari */
+  /* ── Electron drag regions ── */
   .drag-region {
     -webkit-app-region: drag; /* stylelint-disable-line property-no-unknown */
     app-region: drag;
@@ -47,13 +31,106 @@
     -webkit-app-region: no-drag; /* stylelint-disable-line property-no-unknown */
     app-region: no-drag;
   }
+
+  /* ── Base surfaces ── */
   .panel {
-    @apply bg-bg-1 border border-bg-3 rounded-lg shadow-panel;
+    @apply bg-bg-1 border border-bg-3 rounded-xl shadow-panel;
   }
+
+  /* ── Button variants ── */
   .btn-ghost {
-    @apply text-fg-1 hover:text-fg-0 hover:bg-bg-3 rounded px-2 py-1 transition-colors;
+    @apply text-fg-2 hover:text-fg-0 hover:bg-white/[0.06] rounded-md px-2 py-1.5
+           transition-colors duration-150 flex items-center;
   }
+  .btn-icon {
+    @apply text-fg-2 hover:text-fg-0 hover:bg-white/[0.06] rounded-md p-1.5
+           transition-colors duration-150 flex items-center justify-center;
+  }
+  .btn-icon-active {
+    @apply text-accent bg-accent/10 hover:bg-accent/15 rounded-md p-1.5
+           transition-colors duration-150 flex items-center justify-center;
+  }
+
+  /* ── Input ── */
   .input-flat {
-    @apply bg-bg-2 border border-bg-3 rounded-md px-3 py-1.5 text-fg-0 placeholder-fg-3 focus:border-accent outline-none;
+    @apply bg-bg-2 border border-bg-3 rounded-lg px-3 py-2 text-fg-0 placeholder-fg-3
+           focus:border-accent/50 outline-none transition-colors;
+  }
+
+  /* ── Glassmorphism surface ── */
+  .glass {
+    background: rgba(13,15,19,0.88);
+    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    backdrop-filter: blur(20px) saturate(1.4);
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+
+  /* ── Arc-style tab card (left sidebar) ── */
+  .tab-card {
+    @apply flex items-center gap-2.5 px-3 py-2 rounded-lg cursor-pointer select-none min-w-0
+           text-fg-2 hover:text-fg-1 hover:bg-white/[0.04]
+           transition-all duration-150;
+  }
+  .tab-card-active {
+    @apply text-fg-0 bg-accent/[0.09];
+    box-shadow: 0 0 0 1px rgba(109,140,255,0.22), 0 2px 10px rgba(109,140,255,0.08);
+  }
+
+  /* ── Smart omnibox ── */
+  .omnibox-wrap {
+    background: rgba(20,23,28,0.7);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 9999px;
+    transition: all 0.18s ease;
+  }
+  .omnibox-wrap:focus-within {
+    background: #14171c;
+    border-color: rgba(109,140,255,0.35);
+    box-shadow: 0 0 0 3px rgba(109,140,255,0.09), 0 4px 20px rgba(0,0,0,0.4);
+  }
+
+  /* ── Chat message bubbles ── */
+  .chat-bubble-user {
+    @apply bg-accent/[0.14] text-fg-0 rounded-2xl rounded-br-sm px-4 py-2.5 text-sm
+           border border-accent/[0.15];
+  }
+  .chat-bubble-ai {
+    @apply bg-bg-2 text-fg-1 rounded-2xl rounded-bl-sm px-4 py-2.5 text-sm
+           border border-bg-3;
+  }
+
+  /* ── Webview fill (absolute, full-size) — used by WebView.tsx ── */
+  .wv-fill {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ── Hide scrollbar while keeping scroll functionality ── */
+  .scrollbar-none {
+    scrollbar-width: none; /* stylelint-disable-line property-no-unknown -- Electron/Chromium 126+ */
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* ── Animated streaming cursor ── */
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+  }
+  .streaming-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 14px;
+    background: currentColor;
+    margin-left: 2px;
+    vertical-align: text-bottom;
+    animation: blink 0.9s ease infinite;
+    opacity: 0.6;
+    border-radius: 1px;
   }
 }

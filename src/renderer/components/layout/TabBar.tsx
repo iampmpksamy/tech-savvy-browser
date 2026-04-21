@@ -14,8 +14,7 @@ export function TabBar() {
 
   return (
     <div
-      className="drag-region h-9 shrink-0 bg-bg-1 border-b border-bg-3 flex items-end px-1 gap-0.5 overflow-x-auto"
-      style={{ scrollbarWidth: 'none' }}
+      className="drag-region h-9 shrink-0 bg-bg-1 border-b border-bg-3 flex items-end px-1 gap-0.5 overflow-x-auto scrollbar-none"
     >
       {tabs.map((tab) => {
         const isActive = tab.id === activeId;
@@ -50,6 +49,7 @@ export function TabBar() {
 
             {/* Close button */}
             <button
+              type="button"
               className={[
                 'shrink-0 w-4 h-4 rounded flex items-center justify-center',
                 'opacity-0 group-hover:opacity-100 transition-opacity',
@@ -68,8 +68,9 @@ export function TabBar() {
 
       {/* New tab button */}
       <button
+        type="button"
         className="no-drag w-8 h-8 shrink-0 flex items-center justify-center rounded-t text-fg-3 hover:text-fg-1 hover:bg-bg-3 transition-colors"
-        onClick={() => create('https://duckduckgo.com')}
+        onClick={() => create('about:blank')}
         aria-label="New tab"
         title="New tab (⌘T)"
       >
